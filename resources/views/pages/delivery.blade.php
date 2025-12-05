@@ -1,0 +1,37 @@
+@extends('layouts.app')
+
+@section('title', 'Доставка — Fonte di Joy')
+
+@section('content')
+<section class="bannerMainAboutSlider">
+    <div class="container">
+        <div class="bannerGreyTop">
+            <h2>Sometimes You've Just Got Questions That Need Answered. No Worries, We Totally Understand.</h2>
+            <p>Harums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+        </div>
+        <img src="/img/photo-bannerGreyTop.png" alt="" class="photo-bannerGreyTop">
+    </div>
+</section>
+
+<section class="revSection revSection-2">
+    <div class="container">
+        <h2 class="titleAll">Доставка</h2>
+        <div class="flex-textAll-p">
+            <p class="textAll-p">Нашим главным принципом является доставка из рук в руки, чтобы обеспечить максимальную надежность и сохранность питомца. Каждая отправка сопровождается всеми необходимыми сопроводительными документами, что позволяет клиентам быть уверенными в прозрачности процесса доставки Вашего питомца.</p>
+            <p class="textAll-p">Работая с надёжными курьерами по всему миру, выполняем только официальные перевозки с лицензией. Доставляем питомцев по России и миру, включая сложные направления. Мы гордимся тем, что сотрудничаем только с самыми ответственными курьерами и брокерами, которые гарантируют безопасность и своевременность доставки.</p>
+            <p class="textAll-p">Наша команда строго контролирует каждый этап перевозки животного, чтобы убедиться, что он будет доставлен вовремя и в надлежащем состоянии.</p>
+            <p class="textAll-p">Благодаря нашей долгосрочной работе с надёжными партнерами, мы можем предложить доставку даже в самые отдаленные уголки мира. Наш наработанный опыт, международные контакты и профессионализм позволяют нам успешно справляться с любыми сложностями, связанными с доставкой собак.</p>
+            <div class="blockDeliveryBold">
+                <h5>Из рук в руки - главный принцип нашей доставки.</h5>
+            </div>
+            <p class="textAll-p">Мы готовы взять на себя ответственность за доставку вашего питомца и гарантировать его безопасность. Наша команда всегда готова ответить на ваши вопросы и предоставить вам полную информацию о процессе доставки.</p>
+            <p class="textAll-p">Выбирая нас, вы можете быть уверены, что ваш малыш будет в надежных руках и доставлен вовремя. Мы ценим доверие наших клиентов и делаем все возможное, чтобы обеспечить высокое качество обслуживания и надежность доставки.</p>
+            <p class="textAll-p">С уважением Дмитриева Ольга</p>
+        </div>
+        <div class="flexPhotoDelivery">
+            <img src="/img/flexPhotoDelivery-1.png" alt="">
+            <img src="/img/flexPhotoDelivery-2.png" alt="">
+        </div>
+    </div>
+</section>
+@endsection

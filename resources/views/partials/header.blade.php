@@ -23,23 +23,20 @@
                             <img src="/img/sHeader-3.svg" alt="">
                         </a>
                     </div>
-                    <div class="dropdown">
-                        <div class="langHeader">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                <path d="M12 24C17.5228 24 22 19.5228 22 14C22 8.47715 17.5228 4 12 4C6.47715 4 2 8.47715 2 14C2 19.5228 6.47715 24 12 24Z" stroke="#434C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8.0001 5H9.0001C7.0501 10.84 7.0501 17.16 9.0001 23H8.0001" stroke="#434C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 5C16.95 10.84 16.95 17.16 15 23" stroke="#434C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 18V17C8.84 18.95 15.16 18.95 21 17V18" stroke="#434C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 11C8.84 9.05001 15.16 9.05001 21 11" stroke="#434C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span>RU</span>
+                    <div class="dropdown lang-dropdown">
+                        <div class="langHeader" id="langToggle">
+                            <span class="lang-flag" id="currentFlag">🇷🇺</span>
+                            <span id="currentLang">RU</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M16.5999 9.45834L11.1666 14.8917C10.5249 15.5333 9.4749 15.5333 8.83324 14.8917L3.3999 9.45834" stroke="#434C4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div class="dropdown-content">
-                            <p>RU</p>
-                            <p>EN</p>
+                        <div class="dropdown-content lang-dropdown-content">
+                            <div class="lang-option" data-lang="ru"><span class="lang-flag">🇷🇺</span> RU</div>
+                            <div class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> EN</div>
+                            <div class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> ES</div>
+                            <div class="lang-option" data-lang="pt"><span class="lang-flag">🇵🇹</span> PT</div>
+                            <div class="lang-option" data-lang="zh"><span class="lang-flag">🇨🇳</span> ZH</div>
                         </div>
                     </div>
                     <div class="hamburger-menu">

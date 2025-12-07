@@ -1485,3 +1485,44 @@ footer{
 .price-right-flexCardCatalogTop{
     width: 100%;
 }
+.lang-dropdown .langHeader{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.lang-dropdown .langHeader:hover{
+    background: rgba(0,0,0,0.05);
+}
+.lang-flag{
+    font-size: 20px;
+    line-height: 1;
+}
+.lang-dropdown-content{
+    min-width: 100px;
+}
+.lang-option{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 6px;
+    color: #434C4C;
+    font-size: 14px;
+    font-weight: 500;
+}
+.lang-option:hover{
+    background: rgba(251, 111, 88, 0.1);
+}
+.lang-option.active{
+    background: rgba(251, 111, 88, 0.2);
+    color: #FB6F58;
+}
+.lang-option .lang-flag{
+    font-size: 18px;
+}

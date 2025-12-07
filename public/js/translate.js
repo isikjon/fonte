@@ -1,11 +1,11 @@
 var siteTranslator = {
     currentLang: 'ru',
     flags: {
-        'ru': '🇷🇺',
-        'en': '🇬🇧',
-        'es': '🇪🇸',
-        'pt': '🇵🇹',
-        'zh': '🇨🇳'
+        'ru': 'ru',
+        'en': 'gb',
+        'es': 'es',
+        'pt': 'pt',
+        'zh': 'cn'
     },
     langNames: {
         'ru': 'RU',
@@ -40,106 +40,93 @@ var siteTranslator = {
 
     setLanguage: function(lang) {
         localStorage.setItem('selectedLang', lang);
-        this.currentLang = lang;
-        this.updateUI();
-        if (lang === 'ru') {
-            location.reload();
-        } else {
-            this.translatePage(lang);
-        }
+        location.reload();
     },
 
     updateUI: function() {
         var currentFlag = document.getElementById('currentFlag');
         var currentLang = document.getElementById('currentLang');
-        if (currentFlag) currentFlag.textContent = this.flags[this.currentLang];
-        if (currentLang) currentLang.textContent = this.langNames[this.currentLang];
+        if (currentFlag) {
+            currentFlag.src = 'https://flagcdn.com/w40/' + this.flags[this.currentLang] + '.png';
+        }
+        if (currentLang) {
+            currentLang.textContent = this.langNames[this.currentLang];
+        }
 
+        var self = this;
         var options = document.querySelectorAll('.lang-option');
         options.forEach(function(option) {
             option.classList.remove('active');
-            if (option.getAttribute('data-lang') === this.currentLang) {
+            if (option.getAttribute('data-lang') === self.currentLang) {
                 option.classList.add('active');
             }
-        }, this);
+        });
     },
 
     translatePage: function(targetLang) {
         var self = this;
-        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, button, label, li, td, th, .textAll-p, .titleAll, .textSlideBigMain, .textSlideSubMain, .linkSlideBigMain');
-        var textsToTranslate = [];
-        var elementsMap = [];
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, button, label, li, td, th');
+        var processed = [];
 
         elements.forEach(function(el) {
             if (el.closest('script') || el.closest('style') || el.closest('.notranslate') || el.closest('.lang-dropdown')) return;
-            if (el.children.length === 0 || (el.children.length > 0 && el.innerText === el.textContent)) {
-                var text = el.innerText.trim();
-                if (text && text.length > 0 && text.length < 5000) {
-                    if (!el.getAttribute('data-original')) {
-                        el.setAttribute('data-original', text);
-                    }
-                    textsToTranslate.push(el.getAttribute('data-original'));
-                    elementsMap.push(el);
+            if (el.closest('header') && el.tagName === 'A') return;
+            
+            var dominated = false;
+            for (var i = 0; i < processed.length; i++) {
+                if (processed[i].contains(el)) {
+                    dominated = true;
+                    break;
                 }
             }
-        });
+            if (dominated) return;
 
-        if (textsToTranslate.length === 0) return;
+            var dominated2 = false;
+            for (var i = 0; i < processed.length; i++) {
+                if (el.contains(processed[i])) {
+                    dominated2 = true;
+                    break;
+                }
+            }
 
-        var batchSize = 50;
-        var batches = [];
-        for (var i = 0; i < textsToTranslate.length; i += batchSize) {
-            batches.push({
-                texts: textsToTranslate.slice(i, i + batchSize),
-                elements: elementsMap.slice(i, i + batchSize)
-            });
-        }
+            var text = '';
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                text = el.childNodes[0].textContent.trim();
+            } else if (el.children.length === 0) {
+                text = el.innerText.trim();
+            }
 
-        batches.forEach(function(batch) {
-            self.translateBatch(batch.texts, batch.elements, targetLang);
+            if (text && text.length > 1 && text.length < 3000 && !/^[\d\s\+\-\(\)\.\,\@\#\$\%\&\*\!]+$/.test(text)) {
+                if (!el.getAttribute('data-original')) {
+                    el.setAttribute('data-original', text);
+                }
+                processed.push(el);
+                self.translateText(el.getAttribute('data-original'), targetLang, el);
+            }
         });
     },
 
-    translateBatch: function(texts, elements, targetLang) {
-        var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=' + targetLang + '&dt=t';
-        texts.forEach(function(text) {
-            url += '&q=' + encodeURIComponent(text);
-        });
-
-        if (texts.length === 1) {
-            fetch(url)
-                .then(function(response) { return response.json(); })
-                .then(function(data) {
-                    if (data && data[0]) {
-                        var translated = '';
-                        data[0].forEach(function(part) {
-                            if (part[0]) translated += part[0];
-                        });
-                        if (translated && elements[0]) {
-                            elements[0].innerText = translated;
+    translateText: function(text, targetLang, element) {
+        var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=' + targetLang + '&dt=t&q=' + encodeURIComponent(text);
+        
+        fetch(url)
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                if (data && data[0]) {
+                    var translated = '';
+                    data[0].forEach(function(part) {
+                        if (part[0]) translated += part[0];
+                    });
+                    if (translated && element) {
+                        if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) {
+                            element.childNodes[0].textContent = translated;
+                        } else {
+                            element.innerText = translated;
                         }
                     }
-                })
-                .catch(function(err) { console.log('Translation error:', err); });
-        } else {
-            texts.forEach(function(text, index) {
-                var singleUrl = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=' + targetLang + '&dt=t&q=' + encodeURIComponent(text);
-                fetch(singleUrl)
-                    .then(function(response) { return response.json(); })
-                    .then(function(data) {
-                        if (data && data[0]) {
-                            var translated = '';
-                            data[0].forEach(function(part) {
-                                if (part[0]) translated += part[0];
-                            });
-                            if (translated && elements[index]) {
-                                elements[index].innerText = translated;
-                            }
-                        }
-                    })
-                    .catch(function(err) { console.log('Translation error:', err); });
-            });
-        }
+                }
+            })
+            .catch(function(err) {});
     }
 };
 

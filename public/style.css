@@ -1497,18 +1497,21 @@ footer{
 .lang-dropdown .langHeader:hover{
     background: rgba(0,0,0,0.05);
 }
-.lang-flag{
-    font-size: 20px;
-    line-height: 1;
+.lang-flag-img{
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 .lang-dropdown-content{
-    min-width: 100px;
+    min-width: 110px;
 }
 .lang-option{
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
+    gap: 10px;
+    padding: 10px 14px;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 6px;
@@ -1523,6 +1526,7 @@ footer{
     background: rgba(251, 111, 88, 0.2);
     color: #FB6F58;
 }
-.lang-option .lang-flag{
-    font-size: 18px;
+.lang-option .lang-flag-img{
+    width: 22px;
+    height: 15px;
 }

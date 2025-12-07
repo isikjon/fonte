@@ -25,18 +25,18 @@
                     </div>
                     <div class="dropdown lang-dropdown">
                         <div class="langHeader" id="langToggle">
-                            <span class="lang-flag" id="currentFlag">🇷🇺</span>
+                            <img src="https://flagcdn.com/w40/ru.png" alt="" class="lang-flag-img" id="currentFlag">
                             <span id="currentLang">RU</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M16.5999 9.45834L11.1666 14.8917C10.5249 15.5333 9.4749 15.5333 8.83324 14.8917L3.3999 9.45834" stroke="#434C4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div class="dropdown-content lang-dropdown-content">
-                            <div class="lang-option" data-lang="ru"><span class="lang-flag">🇷🇺</span> RU</div>
-                            <div class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> EN</div>
-                            <div class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> ES</div>
-                            <div class="lang-option" data-lang="pt"><span class="lang-flag">🇵🇹</span> PT</div>
-                            <div class="lang-option" data-lang="zh"><span class="lang-flag">🇨🇳</span> ZH</div>
+                            <div class="lang-option" data-lang="ru" data-flag="ru"><img src="https://flagcdn.com/w40/ru.png" alt="" class="lang-flag-img"> RU</div>
+                            <div class="lang-option" data-lang="en" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png" alt="" class="lang-flag-img"> EN</div>
+                            <div class="lang-option" data-lang="es" data-flag="es"><img src="https://flagcdn.com/w40/es.png" alt="" class="lang-flag-img"> ES</div>
+                            <div class="lang-option" data-lang="pt" data-flag="pt"><img src="https://flagcdn.com/w40/pt.png" alt="" class="lang-flag-img"> PT</div>
+                            <div class="lang-option" data-lang="zh" data-flag="cn"><img src="https://flagcdn.com/w40/cn.png" alt="" class="lang-flag-img"> ZH</div>
                         </div>
                     </div>
                     <div class="hamburger-menu">

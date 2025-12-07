@@ -1,55 +1,52 @@
 ymaps.ready(init);
 
 function init() {
-    // Координаты площади Чкалова
-    const targetCoords = [47.236694, 39.705069];
+    var mapElement = document.getElementById("map");
+    if (!mapElement) return;
 
-    // Создаём карту
-    const myMap = new ymaps.Map("map", {
+    var scrollPos = window.scrollY;
+
+    var targetCoords = [47.236694, 39.705069];
+
+    var myMap = new ymaps.Map("map", {
         center: targetCoords,
         zoom: 16,
         controls: ['zoomControl', 'routePanelControl'],
+    }, {
+        suppressMapOpenBlock: true
     });
 
-    // Маркер с кастомным цветом
-    const placemark = new ymaps.Placemark(targetCoords, {
+    window.scrollTo(0, scrollPos);
+
+    var placemark = new ymaps.Placemark(targetCoords, {
         hintContent: 'Площадь Чкалова'
     }, {
         preset: 'islands#dotIcon',
-        iconColor: '#FB6F58', // ваш цвет
+        iconColor: '#FB6F58',
     });
 
     myMap.geoObjects.add(placemark);
 
-    // Панель маршрутов
-    const routePanel = myMap.controls.get('routePanelControl');
+    var routePanel = myMap.controls.get('routePanelControl');
 
-    // Разрешаем выбор направления "откуда–куда"
     routePanel.routePanel.options.set({
         allowSwitch: true,
         reverseGeocoding: true,
     });
 
-    // Устанавливаем точку назначения (площадь Чкалова)
     routePanel.routePanel.state.set({
         to: 'Площадь Чкалова, Ростов-на-Дону',
-        toEnabled: false   // фиксируем конечную точку
+        toEnabled: false
     });
 
-    // Добавляем построение маршрута по клику на карту
     myMap.events.add('click', function (e) {
-        const coords = e.get('coords');
+        var coords = e.get('coords');
         routePanel.routePanel.state.set({
             from: coords
         });
     });
 
-    // Авто-маршрут от геолокации пользователя (если доступна)
-    ymaps.geolocation.get().then(function (res) {
-        if (res.geoObjects.position) {
-            routePanel.routePanel.state.set({
-                from: res.geoObjects.position
-            });
-        }
-    });
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 100);
 }

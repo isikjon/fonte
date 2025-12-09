@@ -1627,7 +1627,7 @@ footer{
     font-weight: 300;
 }
 .faqBlockGrey .accordion-content{
-    padding: 0 20px 20px;
+    padding: 0 20px 0 !important;
 }
 .contactFormSection{
     padding: 60px 0;

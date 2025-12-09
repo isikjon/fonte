@@ -1574,8 +1574,114 @@ footer{
 .formContactTop button:hover{
     background: #e5604a;
 }
+.faqSectionContact{
+    padding: 60px 0;
+}
+.faqBlockGrey{
+    background: #F5F5F5;
+    border-radius: 20px;
+    padding: 40px;
+}
+.faqBlockGrey .titleAll{
+    margin-bottom: 15px;
+}
+.faqSubtitle{
+    color: #666;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 30px;
+}
+.faqCategoryTitle{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+.faqBlockGrey .accordion{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.faqBlockGrey .accordion-item{
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.faqBlockGrey .accordion-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: #fff;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+.accordion-plus{
+    font-size: 24px;
+    color: #FB6F58;
+    font-weight: 300;
+}
+.faqBlockGrey .accordion-content{
+    padding: 0 20px 20px;
+}
+.contactFormSection{
+    padding: 60px 0;
+    background: #fff;
+}
+.contactFormSection .titleAll{
+    margin-bottom: 10px;
+}
+.formSubtitle{
+    margin-bottom: 30px;
+    color: #666;
+}
+.formContactTop{
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.formContactTopInputs{
+    display: flex;
+    gap: 20px;
+}
+.formContactTopInputs input{
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff;
+}
+.formContactTop textarea{
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    min-height: 120px;
+    background: #fff;
+}
+.formContactTop button{
+    padding: 15px 40px;
+    background: #FB6F58;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.formContactTop button:hover{
+    background: #e5604a;
+}
 .contactSectionMainPage{
-    margin-top: 0;
+    background: #2D3436;
+    padding: 60px 0;
 }
 .contactSectionMainPage .flex-contactSectionMain{
     display: flex;
@@ -1587,4 +1693,82 @@ footer{
 .contactSectionMainPage .map{
     flex: 1;
     min-height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.contactInfoBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.contactInfoItem{
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+.contactInfoIcon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contactInfoIcon-time{
+    background: #FB6F58;
+}
+.contactInfoIcon-time::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url('/img/icon-time.svg') center no-repeat;
+    background-size: contain;
+}
+.contactInfoIcon-phone{
+    background: #4CAF50;
+}
+.contactInfoIcon-phone::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url('/img/icon-phone-white.svg') center no-repeat;
+    background-size: contain;
+}
+.contactInfoIcon-email{
+    background: #FB6F58;
+}
+.contactInfoIcon-email::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url('/img/icon-email.svg') center no-repeat;
+    background-size: contain;
+}
+.contactInfoIcon-company{
+    background: #FB6F58;
+}
+.contactInfoIcon-company::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url('/img/icon-home.svg') center no-repeat;
+    background-size: contain;
+}
+.contactInfoText h4{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.contactInfoText p,
+.contactInfoText a{
+    color: #ccc;
+    font-size: 14px;
+    line-height: 22px;
+    display: block;
+}
+.contactInfoText a:hover{
+    color: #FB6F58;
 }

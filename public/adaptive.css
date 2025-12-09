@@ -591,3 +591,33 @@
         bottom: 15px!important;
     }
 }
+@media screen and (max-width: 900px){
+    .formContactTopInputs{
+        flex-direction: column;
+    }
+    .contactSectionMainPage .flex-contactSectionMain{
+        flex-direction: column;
+    }
+    .faqBlockGrey{
+        padding: 25px;
+    }
+}
+@media screen and (max-width: 580px){
+    .faqSectionContact{
+        padding: 40px 0;
+    }
+    .contactFormSection{
+        padding: 40px 0;
+    }
+    .faqBlockGrey{
+        padding: 20px;
+        border-radius: 15px;
+    }
+    .faqBlockGrey .accordion-header{
+        font-size: 14px;
+        padding: 15px;
+    }
+    .contactSectionMainPage{
+        padding: 40px 0;
+    }
+}

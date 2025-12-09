@@ -36,7 +36,7 @@
                     <div class="rightText-left-flexBlogCatalog">
                         <h3>{{ $blog->title }}</h3>
                         <p>{{ $blog->short_description }}</p>
-                        <span>{{ $blog->created_at->translatedFormat('d F Y') }}</span>
+                        <span class="blog-date" data-date="{{ $blog->created_at->toDateString() }}">{{ $blog->created_at->locale('ru')->translatedFormat('d F Y') }}</span>
                     </div>
                 </a>
                 @empty

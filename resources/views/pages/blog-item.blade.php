@@ -35,7 +35,7 @@
                 </div>
             @endif
 
-            <p style="color: #999; margin-top: 30px;">Опубликовано: {{ $blog->created_at->locale('ru')->translatedFormat('d F Y') }}</p>
+            <p style="color: #999; margin-top: 30px;">Опубликовано: <span class="blog-date" data-date="{{ $blog->created_at->toDateString() }}">{{ $blog->created_at->locale('ru')->translatedFormat('d F Y') }}</span></p>
         </div>
     </div>
 </section>

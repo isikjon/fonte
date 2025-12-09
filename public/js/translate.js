@@ -14,11 +14,19 @@ var siteTranslator = {
         'pt': 'PT',
         'zh': 'ZH'
     },
+    localeMap: {
+        'ru': 'ru-RU',
+        'en': 'en-US',
+        'es': 'es-ES',
+        'pt': 'pt-PT',
+        'zh': 'zh-CN'
+    },
 
     init: function() {
         var savedLang = localStorage.getItem('selectedLang') || 'ru';
         this.currentLang = savedLang;
         this.updateUI();
+        this.formatDates();
         if (savedLang !== 'ru') {
             this.translatePage(savedLang);
         }
@@ -78,7 +86,6 @@ var siteTranslator = {
         
         elements.forEach(function(el) {
             if (el.closest('script') || el.closest('style') || el.closest('.notranslate') || el.closest('.lang-dropdown')) return;
-            if (el.closest('header') && (el.tagName === 'A' || el.closest('.dropdown-content2'))) return;
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 var placeholder = el.getAttribute('placeholder');
                 if (placeholder && placeholder.length > 0) {
@@ -157,6 +164,19 @@ var siteTranslator = {
                 }
             })
             .catch(function(err) {});
+    },
+
+    formatDates: function() {
+        var locale = this.localeMap[this.currentLang] || 'ru-RU';
+        var formatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: 'long', year: 'numeric' });
+        var dates = document.querySelectorAll('.blog-date');
+        dates.forEach(function(el) {
+            var iso = el.getAttribute('data-date');
+            if (!iso) return;
+            var d = new Date(iso);
+            if (isNaN(d.getTime())) return;
+            el.textContent = formatter.format(d);
+        });
     }
 };
 

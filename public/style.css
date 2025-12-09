@@ -1644,6 +1644,8 @@ footer{
     margin-bottom: 30px;
     color: #666;
     text-align: center;
+    max-width: 740px;
+    margin: 20px auto;
 }
 .formContactTop{
     max-width: 900px;

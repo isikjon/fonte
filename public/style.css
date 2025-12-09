@@ -1124,10 +1124,10 @@ footer{
 }
 .flexPoliteForm label p{
     color: #170C04;
-    font-size: 9px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 600;
-    line-height: 16px; /* 177.778% */
+    line-height: 22px;
 }
 .flexPoliteForm label p a{
     color: #FB6F58;
@@ -1786,4 +1786,13 @@ footer{
 }
 .contactInfoText a:hover{
     color: #FB6F58;
+}
+.contact-note{
+    font-size: 14px;
+    color: #666;
+    margin: 4px 0 0 0;
+    line-height: 20px;
+}
+.contact-note-light{
+    color: #666;
 }

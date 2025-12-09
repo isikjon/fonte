@@ -136,6 +136,14 @@ class PageText extends Model
             $cache[$pageKey] = $page?->texts ?? [];
         }
 
-        return $cache[$pageKey][$field] ?? $default;
+        $defaults = [
+            'contacts_phone' => '+7 (988) 5-100-111',
+            'contacts_email' => 'dmitrieva.rostov@gmail.com',
+            'contacts_address' => '344056, Россия, Ростовская область, г. Ростов-на-Дону, площадь Чкалова',
+        ];
+
+        $fallback = $defaults[$field] ?? $default;
+
+        return $cache[$pageKey][$field] ?? $fallback;
     }
 }

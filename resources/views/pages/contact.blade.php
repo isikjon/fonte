@@ -112,7 +112,7 @@
     <div class="container">
         <h2 class="titleAll">{{ PageText::getText('contact', 'form_title', 'Напишите нам') }}</h2>
         <p class="textAll-p formSubtitle">{{ PageText::getText('contact', 'form_text', 'Если у вас возникли вопросы, жалобы или предложения — воспользуйтесь формой обратной связи.') }}</p>
-        <form action="" method="post" class="formContactTop">
+        <form action="mailto:dmitrieva.rostov@gmail.com" method="post" enctype="text/plain" class="formContactTop">
             @csrf
             <div class="formContactTopInputs">
                 <input type="text" name="name" placeholder="Ваше имя" required>
@@ -136,6 +136,7 @@
         <div class="flex-contactSectionMain">
             <div class="leftFlex-contactSectionMain">
                 <div class="contactInfoBlock">
+                    <h2 class="titleAll">Наши контакты</h2>
                     <div class="contactInfoItem">
                         <div class="contactInfoIcon contactInfoIcon-time"></div>
                         <div class="contactInfoText">
@@ -147,24 +148,23 @@
                         <div class="contactInfoIcon contactInfoIcon-phone"></div>
                         <div class="contactInfoText">
                             <h4>ПОЗВОНИТЬ НАМ</h4>
-                            <a href="tel:+74951515206">+7 (495) 15-15-206</a>
-                            <a href="tel:+79311076332">+7 (931) 107-63-32</a>
+                            <a href="tel:+79885100111">+7 (988) 5-100-111</a>
+                            <p class="contact-note contact-note-light">* по московскому времени</p>
                         </div>
                     </div>
                     <div class="contactInfoItem">
                         <div class="contactInfoIcon contactInfoIcon-email"></div>
                         <div class="contactInfoText">
                             <h4>НАПИСАТЬ НАМ</h4>
-                            <a href="mailto:academy@bonnieandslide.com">academy@bonnieandslide.com</a>
+                            <a href="mailto:dmitrieva.rostov@gmail.com">dmitrieva.rostov@gmail.com</a>
                         </div>
                     </div>
                     <div class="contactInfoItem">
                         <div class="contactInfoIcon contactInfoIcon-company"></div>
                         <div class="contactInfoText">
-                            <h4>ООО «БОННИ И СЛАЙД»</h4>
-                            <p>ИНН 9701259586</p>
-                            <p>ОГРН 1237700606956</p>
-                            <p>КПП 770101001</p>
+                            <h4>Fontedijoy</h4>
+                            <p>344056, Россия, Ростовская область,</p>
+                            <p>г. Ростов-на-Дону, площадь Чкалова</p>
                         </div>
                     </div>
                 </div>

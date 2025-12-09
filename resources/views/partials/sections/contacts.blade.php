@@ -6,7 +6,7 @@
     <div class="container">
         <div class="flex-contactSectionMain">
             @if(isset($showForm) && $showForm)
-            <form action="" method="post" class="formFooterContact">
+            <form action="mailto:dmitrieva.rostov@gmail.com" method="post" enctype="text/plain" class="formFooterContact">
                 @csrf
                 <input type="text" name="name" placeholder="{{ PageText::getText($page, 'form_name_placeholder', 'Имя') }}" required>
                 <input type="text" name="phone" placeholder="{{ PageText::getText($page, 'form_phone_placeholder', 'Телефон') }}" required>
@@ -31,15 +31,16 @@
                 <h2 class="titleAll">{{ PageText::getText($page, 'contacts_title', 'Наши контакты') }}</h2>
                 <div class="block-leftFlex-contactSectionMain">
                     <span>{{ PageText::getText('contact', 'phone_label', 'Телефон') }}</span>
-                    <a href="tel:{{ preg_replace('/[^0-9+]/', '', PageText::getText($page, 'contacts_phone', '+79999999999')) }}">{{ PageText::getText($page, 'contacts_phone', '+7 (999) 999 99-99') }}</a>
+                    <a href="tel:{{ preg_replace('/[^0-9+]/', '', PageText::getText($page, 'contacts_phone', '+79885100111')) }}">{{ PageText::getText($page, 'contacts_phone', '+7 (988) 5-100-111') }}</a>
+                    <p class="contact-note">* по московскому времени</p>
                 </div>
                 <div class="block-leftFlex-contactSectionMain">
                     <span>{{ PageText::getText('contact', 'email_label', 'E-mail') }}</span>
-                    <a href="mailto:{{ PageText::getText($page, 'contacts_email', 'example@example.com') }}">{{ PageText::getText($page, 'contacts_email', 'example@example.com') }}</a>
+                    <a href="mailto:{{ PageText::getText($page, 'contacts_email', 'dmitrieva.rostov@gmail.com') }}">{{ PageText::getText($page, 'contacts_email', 'dmitrieva.rostov@gmail.com') }}</a>
                 </div>
                 <div class="block-leftFlex-contactSectionMain">
                     <span>{{ PageText::getText('contact', 'address_label', 'Адрес') }}</span>
-                    <p>{{ PageText::getText($page, 'contacts_address', 'площадь Чкалова, Ростов-на-Дону, Ростовская обл., 344056') }}</p>
+                    <p>{{ PageText::getText($page, 'contacts_address', '344056, Россия, Ростовская область, г. Ростов-на-Дону, площадь Чкалова') }}</p>
                 </div>
             </div>
             <div class="map" id="map"></div>

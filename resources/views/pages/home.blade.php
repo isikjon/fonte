@@ -99,7 +99,7 @@
 
 @include('partials.sections.reviews')
 
-@include('partials.sections.contacts')
+@include('partials.sections.contacts', ['pageKey' => 'contact', 'showForm' => true])
 @endsection
 
 @push('scripts-before')

@@ -420,11 +420,15 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    cursor: pointer;
 }
 .photo-block-plusesSectionMain{
     transition: 0.3s;
     opacity: 1;
     position: relative;
+    z-index: 1;
+    pointer-events: none;
 }
 .text-block-plusesSectionMain{
     transition: 0.3s;
@@ -433,6 +437,8 @@ header{
     align-items: center;
     gap: 15px;
     max-width: 270px;
+    position: relative;
+    z-index: 2;
 }
 .text-block-plusesSectionMain p{
     color: #434C4C;
@@ -462,6 +468,7 @@ header{
 .block-plusesSectionMain:hover .photo-block-plusesSectionMain{
     opacity: 0;
     position: absolute;
+    pointer-events: none;
     transition: 0.3s;
 }
 .block-plusesSectionMain:hover .text-block-plusesSectionMain{

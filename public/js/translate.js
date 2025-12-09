@@ -123,6 +123,16 @@ var siteTranslator = {
                 text = el.innerText.trim();
             } else if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
                 text = el.childNodes[0].textContent.trim();
+            } else {
+                for (var j = 0; j < el.childNodes.length; j++) {
+                    if (el.childNodes[j].nodeType === 3) {
+                        var t = el.childNodes[j].textContent.trim();
+                        if (t) {
+                            text = t;
+                            break;
+                        }
+                    }
+                }
             }
 
             if (text && text.length > 1 && text.length < 3000) {
@@ -140,6 +150,13 @@ var siteTranslator = {
                         el.innerText = translated;
                     } else if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
                         el.childNodes[0].textContent = translated;
+                    } else {
+                        for (var k = 0; k < el.childNodes.length; k++) {
+                            if (el.childNodes[k].nodeType === 3) {
+                                el.childNodes[k].textContent = translated;
+                                break;
+                            }
+                        }
                     }
                     el.removeAttribute('data-translating');
                 });

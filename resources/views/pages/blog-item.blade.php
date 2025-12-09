@@ -35,7 +35,7 @@
                 </div>
             @endif
 
-            <p style="color: #999; margin-top: 30px;">Опубликовано: {{ $blog->created_at->translatedFormat('d F Y') }}</p>
+            <p style="color: #999; margin-top: 30px;">Опубликовано: {{ $blog->created_at->locale('ru')->translatedFormat('d F Y') }}</p>
         </div>
     </div>
 </section>

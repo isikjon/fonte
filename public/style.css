@@ -1619,6 +1619,7 @@ footer{
     font-size: 15px;
     font-weight: 500;
     color: #333;
+    font-family: "Open Sans", sans-serif;
     cursor: pointer;
 }
 .accordion-plus{
@@ -1628,10 +1629,13 @@ footer{
 }
 .faqBlockGrey .accordion-content{
     padding: 0 20px 0 !important;
+    font-family: "Open Sans", sans-serif;
+    color: #333;
 }
 .contactFormSection{
     padding: 60px 0;
-    background: #fff;
+    background: #f5f5f5;
+    text-align: center;
 }
 .contactFormSection .titleAll{
     margin-bottom: 10px;
@@ -1639,9 +1643,11 @@ footer{
 .formSubtitle{
     margin-bottom: 30px;
     color: #666;
+    text-align: center;
 }
 .formContactTop{
     max-width: 900px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1680,7 +1686,7 @@ footer{
     background: #e5604a;
 }
 .contactSectionMainPage{
-    background: #2D3436;
+    background: #f5f5f5;
     padding: 60px 0;
 }
 .contactSectionMainPage .flex-contactSectionMain{
@@ -1756,7 +1762,7 @@ footer{
     background-size: contain;
 }
 .contactInfoText h4{
-    color: #fff;
+    color: #2D3436;
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 5px;
@@ -1764,7 +1770,7 @@ footer{
 }
 .contactInfoText p,
 .contactInfoText a{
-    color: #ccc;
+    color: #444;
     font-size: 14px;
     line-height: 22px;
     display: block;

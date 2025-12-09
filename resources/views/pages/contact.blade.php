@@ -4,14 +4,41 @@
 
 @section('title', 'Контакты — Fonte di Joy')
 
+@php
+    use App\Models\PageText;
+@endphp
+
 @section('content')
 <section class="bannerMainAboutSlider">
     <div class="container">
         <div class="bannerGreyTop">
-            <h2>Sometimes You've Just Got Questions That Need Answered. No Worries, We Totally Understand.</h2>
-            <p>Harums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+            <h2>{{ PageText::getText('contact', 'banner_title', 'Контакты') }}</h2>
+            <p>{{ PageText::getText('contact', 'banner_text', 'Свяжитесь с нами любым удобным способом. Мы всегда рады ответить на ваши вопросы.') }}</p>
         </div>
         <img src="/img/photo-bannerGreyTop.png" alt="" class="photo-bannerGreyTop">
+    </div>
+</section>
+
+<section class="contactFormSection">
+    <div class="container">
+        <h2 class="titleAll titleAll-center">{{ PageText::getText('contact', 'form_title', 'Напишите нам') }}</h2>
+        <p class="textAll-p text-center" style="text-align: center; margin-bottom: 30px;">{{ PageText::getText('contact', 'form_text', 'Если у вас возникли вопросы, жалобы или предложения — воспользуйтесь формой обратной связи.') }}</p>
+        <form action="" method="post" class="formContactTop">
+            @csrf
+            <div class="formContactTopInputs">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="text" name="phone" placeholder="Телефон" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+            </div>
+            <textarea name="message" placeholder="Ваш комментарий..." required></textarea>
+            <button type="submit">Отправить</button>
+            <div class="flexPoliteForm">
+                <input id="checkTop" type="checkbox" required checked>
+                <label for="checkTop">
+                    <p>Я даю согласие на обработку своих <a href="#!">персональных данных</a></p>
+                </label>
+            </div>
+        </form>
     </div>
 </section>
 
@@ -171,31 +198,11 @@
     </div>
 </section>
 
-<section class="contactSectionMain">
+<section class="contactSectionMain contactSectionMainPage">
     <div class="container">
         <div class="flex-contactSectionMain">
-            <form action="" method="post" class="formFooterContact">
-                @csrf
-                <input type="text" name="name" placeholder="Имя" required>
-                <input type="text" name="phone" placeholder="Телефон" required>
-                <select name="budget" required>
-                    <option selected disabled>Бюджет</option>
-                    <option>300 $</option>
-                    <option>500 $</option>
-                    <option>600 $</option>
-                    <option>1000 $</option>
-                </select>
-                <textarea name="message" placeholder="Письмо" required></textarea>
-                <button type="submit">Отправить</button>
-                <div class="flexPoliteForm">
-                    <input id="check" type="checkbox" required checked>
-                    <label for="check">
-                        <p>Я согласен(-на) c <a href="#!">условиями пользовательского соглашения</a> и <a href="#!">политики конфиденциальности</a>. Я принимаю условия <a href="#!">договора оферты</a>.</p>
-                    </label>
-                </div>
-            </form>
             <div class="leftFlex-contactSectionMain">
-                <h2 class="titleAll">Наши контакты</h2>
+                <h2 class="titleAll">{{ PageText::getText('contact', 'contacts_title', 'Наши контакты') }}</h2>
                 <div class="block-leftFlex-contactSectionMain">
                     <span>Телефон</span>
                     <a href="tel:+79999999999">+7 (999) 999 99-99</a>

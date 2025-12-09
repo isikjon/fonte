@@ -18,6 +18,7 @@ class Puppy extends Model
         'status',
         'price',
         'description',
+        'short_description',
         'photo',
         'gallery',
         'is_new',

@@ -65,48 +65,82 @@ var siteTranslator = {
 
     translatePage: function(targetLang) {
         var self = this;
-        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, button, label, li, td, th');
-        var processed = [];
-
+        var selectors = [
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+            'p', 'span', 'a', 'button', 'label',
+            'li', 'td', 'th', 'option',
+            '.textAll-p', '.titleAll', '.textSlideBigMain', '.textSlideSubMain',
+            '.linkSlideBigMain', '.accordion-header', '.textRev',
+            'input[placeholder]', 'textarea[placeholder]'
+        ];
+        
+        var elements = document.querySelectorAll(selectors.join(', '));
+        
         elements.forEach(function(el) {
             if (el.closest('script') || el.closest('style') || el.closest('.notranslate') || el.closest('.lang-dropdown')) return;
-            if (el.closest('header') && el.tagName === 'A') return;
-            
+            if (el.closest('header') && (el.tagName === 'A' || el.closest('.dropdown-content2'))) return;
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                var placeholder = el.getAttribute('placeholder');
+                if (placeholder && placeholder.length > 0) {
+                    if (!el.getAttribute('data-original-placeholder')) {
+                        el.setAttribute('data-original-placeholder', placeholder);
+                    }
+                    self.translateText(el.getAttribute('data-original-placeholder'), targetLang, function(translated) {
+                        el.setAttribute('placeholder', translated);
+                    });
+                }
+                return;
+            }
+
             var dominated = false;
-            for (var i = 0; i < processed.length; i++) {
-                if (processed[i].contains(el)) {
+            var parent = el.parentElement;
+            while (parent) {
+                if (parent.getAttribute && parent.getAttribute('data-translating')) {
                     dominated = true;
                     break;
                 }
+                parent = parent.parentElement;
             }
             if (dominated) return;
 
-            var dominated2 = false;
-            for (var i = 0; i < processed.length; i++) {
-                if (el.contains(processed[i])) {
-                    dominated2 = true;
+            var text = '';
+            var hasOnlyTextNodes = true;
+            for (var i = 0; i < el.childNodes.length; i++) {
+                if (el.childNodes[i].nodeType === 1 && el.childNodes[i].tagName !== 'BR') {
+                    hasOnlyTextNodes = false;
                     break;
                 }
             }
 
-            var text = '';
-            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
-                text = el.childNodes[0].textContent.trim();
-            } else if (el.children.length === 0) {
+            if (hasOnlyTextNodes) {
                 text = el.innerText.trim();
+            } else if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                text = el.childNodes[0].textContent.trim();
             }
 
-            if (text && text.length > 1 && text.length < 3000 && !/^[\d\s\+\-\(\)\.\,\@\#\$\%\&\*\!]+$/.test(text)) {
+            if (text && text.length > 1 && text.length < 3000) {
+                if (/^[\d\s\+\-\(\)\.\,\@\#\$\%\&\*\!\:\;\"\'\?\=\/\\\_\|\<\>\[\]\{\}]+$/.test(text)) return;
+                if (/^https?:\/\//.test(text)) return;
+                if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(text)) return;
+
                 if (!el.getAttribute('data-original')) {
                     el.setAttribute('data-original', text);
                 }
-                processed.push(el);
-                self.translateText(el.getAttribute('data-original'), targetLang, el);
+                el.setAttribute('data-translating', 'true');
+                
+                self.translateText(el.getAttribute('data-original'), targetLang, function(translated) {
+                    if (hasOnlyTextNodes) {
+                        el.innerText = translated;
+                    } else if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                        el.childNodes[0].textContent = translated;
+                    }
+                    el.removeAttribute('data-translating');
+                });
             }
         });
     },
 
-    translateText: function(text, targetLang, element) {
+    translateText: function(text, targetLang, callback) {
         var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=' + targetLang + '&dt=t&q=' + encodeURIComponent(text);
         
         fetch(url)
@@ -117,12 +151,8 @@ var siteTranslator = {
                     data[0].forEach(function(part) {
                         if (part[0]) translated += part[0];
                     });
-                    if (translated && element) {
-                        if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) {
-                            element.childNodes[0].textContent = translated;
-                        } else {
-                            element.innerText = translated;
-                        }
+                    if (translated && callback) {
+                        callback(translated);
                     }
                 }
             })

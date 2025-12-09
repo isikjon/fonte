@@ -111,6 +111,8 @@ class PageText extends Model
             'contact' => [
                 'banner_title' => ['label' => 'Заголовок баннера', 'type' => 'text'],
                 'banner_text' => ['label' => 'Текст баннера', 'type' => 'textarea'],
+                'form_title' => ['label' => 'Заголовок формы', 'type' => 'text'],
+                'form_text' => ['label' => 'Текст под заголовком формы', 'type' => 'textarea'],
                 'faq_title' => ['label' => 'Заголовок FAQ', 'type' => 'text'],
                 'contacts_title' => ['label' => 'Заголовок "Контакты"', 'type' => 'text'],
                 'phone_label' => ['label' => 'Лейбл "Телефон"', 'type' => 'text'],
@@ -119,12 +121,6 @@ class PageText extends Model
                 'email' => ['label' => 'Email', 'type' => 'text'],
                 'address_label' => ['label' => 'Лейбл "Адрес"', 'type' => 'text'],
                 'address' => ['label' => 'Адрес', 'type' => 'textarea'],
-                'form_name_placeholder' => ['label' => 'Плейсхолдер "Имя"', 'type' => 'text'],
-                'form_phone_placeholder' => ['label' => 'Плейсхолдер "Телефон"', 'type' => 'text'],
-                'form_budget_placeholder' => ['label' => 'Плейсхолдер "Бюджет"', 'type' => 'text'],
-                'form_message_placeholder' => ['label' => 'Плейсхолдер "Сообщение"', 'type' => 'text'],
-                'form_button' => ['label' => 'Текст кнопки формы', 'type' => 'text'],
-                'form_agreement' => ['label' => 'Текст согласия', 'type' => 'textarea'],
             ],
         ];
 

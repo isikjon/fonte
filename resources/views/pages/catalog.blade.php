@@ -36,7 +36,7 @@
                 @endif
                 <div class="text-contentMainSellSlide">
                     <h3>{{ $puppy->name }}</h3>
-                    <p>{{ $puppy->description }}</p>
+                    <p>{{ $puppy->short_description ?: $puppy->description }}</p>
                     <div class="flex-text-contentMainSellSlide">
                         <a href="{{ route('catalog.item', $puppy->slug) }}" class="linkSlideBigMain">Подробнее</a>
                         <span>{{ $puppy->formatted_price }}</span>

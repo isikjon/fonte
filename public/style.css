@@ -1530,3 +1530,61 @@ footer{
     width: 22px;
     height: 15px;
 }
+.contactFormSection{
+    padding: 60px 0;
+    background: #f9f9f9;
+}
+.formContactTop{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.formContactTopInputs{
+    display: flex;
+    gap: 20px;
+}
+.formContactTopInputs input{
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff;
+}
+.formContactTop textarea{
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    min-height: 120px;
+    background: #fff;
+}
+.formContactTop button{
+    padding: 15px 40px;
+    background: #FB6F58;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.formContactTop button:hover{
+    background: #e5604a;
+}
+.contactSectionMainPage{
+    margin-top: 0;
+}
+.contactSectionMainPage .flex-contactSectionMain{
+    display: flex;
+    gap: 40px;
+}
+.contactSectionMainPage .leftFlex-contactSectionMain{
+    flex: 1;
+}
+.contactSectionMainPage .map{
+    flex: 1;
+    min-height: 400px;
+}

@@ -2,12 +2,16 @@
 
 @section('title', 'Наши выпускники — Fonte di Joy')
 
+@php
+    use App\Models\PageText;
+@endphp
+
 @section('content')
 <section class="bannerMainAboutSlider">
     <div class="container">
         <div class="bannerGreyTop">
-            <h2>Sometimes You've Just Got Questions That Need Answered. No Worries, We Totally Understand.</h2>
-            <p>Harums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+            <h2>{{ PageText::getText('students', 'banner_title', 'Наши выпускники') }}</h2>
+            <p>{{ PageText::getText('students', 'banner_text', 'Здесь вы можете посмотреть фотоотчеты и видеоприветы от счастливых владельцев наших щенков.') }}</p>
         </div>
         <img src="/img/photo-bannerGreyTop.png" alt="" class="photo-bannerGreyTop">
     </div>

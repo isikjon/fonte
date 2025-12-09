@@ -6,9 +6,11 @@
     use App\Models\PageText;
     use App\Models\Puppy;
     use App\Models\Slide;
+    use App\Models\Setting;
     use Illuminate\Support\Facades\Storage;
     $puppies = Puppy::active()->ordered()->take(7)->get();
     $slides = Slide::active()->ordered()->get();
+    $homeAboutImage = Setting::get('home_about_image');
 @endphp
 
 @section('content')
@@ -48,7 +50,7 @@
                 </div>
                 <a href="{{ route('about') }}" class="linkSlideBigMain">{{ PageText::getText('home', 'about_button', 'Подробнее') }}</a>
             </div>
-            <img src="/img/photo-flexMainAbout.png" alt="" class="photo-flexMainAbout">
+            <img src="{{ $homeAboutImage ? Storage::url($homeAboutImage) : '/img/photo-flexMainAbout.png' }}" alt="" class="photo-flexMainAbout">
         </div>
     </div>
 </section>
@@ -71,7 +73,7 @@
                         @endif
                         <div class="text-contentMainSellSlide">
                             <h3>{{ $puppy->name }}</h3>
-                            <p>{{ $puppy->description }}</p>
+                            <p>{{ $puppy->short_description ?: $puppy->description }}</p>
                             <div class="flex-text-contentMainSellSlide">
                                 <a href="{{ route('catalog.item', $puppy->slug) }}" class="linkSlideBigMain">Подробнее</a>
                                 <span>{{ $puppy->formatted_price }}</span>

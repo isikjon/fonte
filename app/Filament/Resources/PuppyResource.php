@@ -108,8 +108,14 @@ class PuppyResource extends Resource
                     ->prefix('$')
                     ->default(0),
 
+                Textarea::make('short_description')
+                    ->label('Краткое описание (для карточки)')
+                    ->helperText('Отображается на главной и в каталоге')
+                    ->rows(2),
+
                 Textarea::make('description')
-                    ->label('Описание')
+                    ->label('Полное описание (для баннера)')
+                    ->helperText('Отображается на странице щенка под именем')
                     ->rows(4),
 
                 FileUpload::make('photo')

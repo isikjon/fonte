@@ -102,8 +102,8 @@ class EditSocialLinks extends Page implements HasForms
                             ->placeholder('https://wa.me/...'),
 
                         TextInput::make('viber')
-                            ->label('Viber')
-                            ->placeholder('viber://chat?number=...'),
+                            ->label('Max')
+                            ->placeholder('https://max.example'),
                     ]),
             ])
             ->statePath('data');

@@ -74,11 +74,16 @@ class BlogResource extends Resource
 
                 RichEditor::make('content')
                     ->label('Полный текст статьи')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('blog')
+                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsAccept('image/*')
                     ->columnSpanFull(),
 
                 FileUpload::make('photo')
                     ->label('Фото')
                     ->image()
+                    ->disk('public')
                     ->directory('blog')
                     ->imageEditor(),
 

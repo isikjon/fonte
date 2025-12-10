@@ -142,6 +142,7 @@
                         <div class="contactInfoText">
                             <h4>МЫ НА СВЯЗИ</h4>
                             <p>пн-пт 10:00-19:00</p>
+                            <p class="contact-note contact-note-light">* по московскому времени</p>
                         </div>
                     </div>
                     <div class="contactInfoItem">

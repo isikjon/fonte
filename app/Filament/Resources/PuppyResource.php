@@ -121,12 +121,14 @@ class PuppyResource extends Resource
                 FileUpload::make('photo')
                     ->label('Главное фото')
                     ->image()
+                    ->disk('public')
                     ->directory('puppies')
                     ->imageEditor(),
 
                 FileUpload::make('gallery')
                     ->label('Галерея')
                     ->image()
+                    ->disk('public')
                     ->multiple()
                     ->directory('puppies/gallery')
                     ->reorderable(),

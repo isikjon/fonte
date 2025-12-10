@@ -78,6 +78,7 @@ class ReviewResource extends Resource
                 FileUpload::make('photo')
                     ->label('Фото')
                     ->image()
+                    ->disk('public')
                     ->directory('reviews')
                     ->imageEditor(),
 

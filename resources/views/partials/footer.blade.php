@@ -44,7 +44,7 @@
                 <div class="flex-socialsFooter">
                     @if(Setting::get('social_viber'))
                     <a href="{{ Setting::get('social_viber') }}" target="_blank">
-                        <img src="/img/flex-socialsFooter-6.svg" alt="Viber">
+                        <img src="/img/flex-socialsFooter-6.svg" alt="Max">
                     </a>
                     @endif
                     @if(Setting::get('social_telegram'))

@@ -68,7 +68,7 @@
                                         </div>
                                         <a href="{{ route('home') }}">Главная</a>
                                         <a href="{{ route('about') }}">О питомнике</a>
-                                        <a href="{{ route('students') }}">Наши выпускники</a>
+                                        <a href="{{ route('students') }}">Выпускники</a>
                                         <a href="{{ route('catalog') }}">Щенки на продажу</a>
                                         <a href="{{ route('delivery') }}">Доставка</a>
                                         <a href="{{ route('blog') }}">Блог</a>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="dropdown-content dropdown-content2">
                         <a href="{{ route('about') }}">О нас</a>
-                        <a href="{{ route('students') }}">Наши выпускники</a>
+                        <a href="{{ route('students') }}">Выпускники</a>
                     </div>
                 </div>
                 <a href="{{ route('catalog') }}" class="link-flex-headerGrey">Щенки на продажу</a>

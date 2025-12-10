@@ -75,6 +75,37 @@ class DocumentSeeder extends Seeder
                 'sort_order' => 2,
             ],
             [
+                'title' => 'Договор купли-продажи (EN)',
+                'slug' => 'dogovor-kupli-prodazhi-en',
+                'content' => '<h2>Puppy Sale Agreement</h2>
+
+<h3>1. Subject</h3>
+<p>The Seller transfers a Chihuahua puppy to the Buyer, the Buyer accepts and pays.</p>
+
+<h3>2. Seller Obligations</h3>
+<ul>
+<li>Deliver a healthy puppy meeting the breed standard</li>
+<li>Provide full care and feeding instructions</li>
+<li>Offer ongoing consultation support</li>
+</ul>
+
+<h3>3. Buyer Obligations</h3>
+<ul>
+<li>Pay the full price on time</li>
+<li>Provide proper care and housing</li>
+<li>Vaccinate on schedule</li>
+</ul>
+
+<h3>4. Price and Payment</h3>
+<p>The price is set individually and fixed in an addendum.</p>
+<p>Prepayment: 30% of the price. Full payment before transfer.</p>
+
+<h3>5. Liability</h3>
+<p>Parties are liable under applicable law for non-performance.</p>',
+                'is_active' => true,
+                'sort_order' => 2.5,
+            ],
+            [
                 'title' => 'Обработка персональных данных',
                 'slug' => 'personal-data',
                 'content' => '<h2>Согласие на обработку персональных данных</h2>
@@ -108,6 +139,30 @@ class DocumentSeeder extends Seeder
 <p>Субъект персональных данных имеет право на получение информации об обработке его персональных данных, а также на отзыв данного согласия.</p>',
                 'is_active' => true,
                 'sort_order' => 3,
+            ],
+            [
+                'title' => 'Договор оферты (EN)',
+                'slug' => 'oferta-en',
+                'content' => '<h2>Public Offer Agreement</h2>
+<p>This document is a public offer by "Fonte di Joy" to sell puppies under the terms below.</p>
+
+<h3>1. General</h3>
+<p>Payment by the Buyer constitutes acceptance.</p>
+
+<h3>2. Subject</h3>
+<p>The Seller delivers a puppy; the Buyer accepts and pays.</p>
+<p>Puppy characteristics are specified in the product card.</p>
+
+<h3>3. Price and Payment</h3>
+<p>Price is shown in USD; full prepayment is required before transfer.</p>
+
+<h3>4. Delivery</h3>
+<p>Arranged with the Buyer; shipping is paid separately.</p>
+
+<h3>5. Guarantees</h3>
+<p>The puppy is healthy at transfer and provided with all documents.</p>',
+                'is_active' => true,
+                'sort_order' => 3.5,
             ],
             [
                 'title' => 'Политика конфиденциальности',

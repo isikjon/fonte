@@ -58,7 +58,6 @@ class SlideResource extends Resource
             ->components([
                 TextInput::make('title')
                     ->label('Заголовок (H1)')
-                    ->required()
                     ->maxLength(255),
 
                 TextInput::make('subtitle')
@@ -78,6 +77,7 @@ class SlideResource extends Resource
                 FileUpload::make('image')
                     ->label('Фоновое изображение')
                     ->image()
+                    ->disk('public')
                     ->directory('slides')
                     ->imageEditor(),
 

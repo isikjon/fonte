@@ -77,7 +77,6 @@ class BlogResource extends Resource
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('blog')
                     ->fileAttachmentsVisibility('public')
-                    ->fileAttachmentsAccept('image/*')
                     ->columnSpanFull(),
 
                 FileUpload::make('photo')

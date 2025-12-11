@@ -160,6 +160,20 @@ header{
     z-index: 2;
     position: relative;
 }
+.parallax-slider .slide-content{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+.parallax-slider .linkSlideBigMain{
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    margin-top: 0;
+}
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
     width: 60px!important;
     height: 4px!important;

@@ -63,6 +63,13 @@ class BlogResource extends Resource
                     ->required()
                     ->maxLength(255),
 
+                FileUpload::make('photo')
+                    ->label('Обложка для списка')
+                    ->image()
+                    ->disk('public')
+                    ->directory('blog')
+                    ->imageEditor(),
+
                 TextInput::make('slug')
                     ->label('URL (slug)')
                     ->maxLength(255)
@@ -75,16 +82,26 @@ class BlogResource extends Resource
                 RichEditor::make('content')
                     ->label('Полный текст статьи')
                     ->fileAttachmentsDisk('public')
-                    ->fileAttachmentsDirectory('blog')
+                    ->fileAttachmentsDirectory('blog/content')
                     ->fileAttachmentsVisibility('public')
+                    ->headingLevels([2, 3, 4])
+                    ->toolbarButtons([
+                        'h2',
+                        'h3',
+                        'bold',
+                        'italic',
+                        'strike',
+                        'link',
+                        'blockquote',
+                        'orderedList',
+                        'bulletList',
+                        'codeBlock',
+                        'horizontalRule',
+                        'attachFiles',
+                        'undo',
+                        'redo',
+                    ])
                     ->columnSpanFull(),
-
-                FileUpload::make('photo')
-                    ->label('Фото')
-                    ->image()
-                    ->disk('public')
-                    ->directory('blog')
-                    ->imageEditor(),
 
                 Toggle::make('is_active')
                     ->label('Активна')

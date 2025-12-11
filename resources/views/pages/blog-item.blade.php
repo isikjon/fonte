@@ -26,11 +26,11 @@
             @endif
 
             @if($blog->content)
-                <div class="flex-textAll-p">
+                <div class="flex-textAll-p blogContent">
                     {!! $blog->content !!}
                 </div>
             @elseif($blog->description)
-                <div class="flex-textAll-p">
+                <div class="flex-textAll-p blogContent">
                     <p class="textAll-p">{{ $blog->description }}</p>
                 </div>
             @endif

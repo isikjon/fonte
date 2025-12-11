@@ -305,6 +305,73 @@ header{
     align-items: flex-start;
     gap: 30px;
 }
+.blogContent{
+    display: block;
+    gap: 0;
+}
+.blogContent p{
+    text-indent: 30px;
+    color: #808282;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0 0 20px;
+}
+.blogContent h2,
+.blogContent h3,
+.blogContent h4,
+.blogContent h5,
+.blogContent h6{
+    color: #434C4C;
+    font-family: "Open Sans Condensed", sans-serif;
+    margin: 20px 0 10px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.blogContent h2{font-size: 30px;}
+.blogContent h3{font-size: 26px;}
+.blogContent h4{font-size: 22px;}
+.blogContent h5{font-size: 20px;}
+.blogContent h6{font-size: 18px;}
+.blogContent figure,
+.blogContent img{
+    max-width: 100%;
+    height: auto;
+}
+.blogContent figure{
+    display: inline-block;
+    margin: 0 20px 20px 0;
+}
+.blogContent figure img{
+    display: block;
+}
+.blogContent .align-left,
+.blogContent figure.align-left,
+.blogContent img.align-left{
+    float: left;
+    margin: 0 20px 20px 0;
+    max-width: 50%;
+}
+.blogContent .align-right,
+.blogContent figure.align-right,
+.blogContent img.align-right{
+    float: right;
+    margin: 0 0 20px 20px;
+    max-width: 50%;
+}
+.blogContent .align-center,
+.blogContent figure.align-center,
+.blogContent img.align-center{
+    float: none;
+    margin: 20px auto;
+    display: block;
+}
+.blogContent::after{
+    content: "";
+    display: block;
+    clear: both;
+}
 .titleAll{
     color: #434C4C;
     font-family: "Open Sans Condensed", sans-serif;

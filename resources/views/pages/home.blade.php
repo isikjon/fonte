@@ -22,11 +22,15 @@
                 <div class="slide-bg" style="background:url('{{ $slide->image ? Storage::url($slide->image) : '/img/bgSlideMain.png' }}') center center no-repeat; background-size: cover"></div>
                 <div class="slide-content">
                     <div class="container">
+                        @if($slide->title)
                         <h1 class="textSlideBigMain">{{ $slide->title }}</h1>
+                        @endif
                         @if($slide->subtitle)
                         <p class="textSlideSubMain">{{ $slide->subtitle }}</p>
                         @endif
+                        @if($slide->button_text && $slide->button_link)
                         <a href="{{ $slide->button_link }}" class="linkSlideBigMain">{{ $slide->button_text }}</a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -169,8 +169,10 @@ header{
     align-items: center;
 }
 .parallax-slider .linkSlideBigMain{
-    position: static;
-    margin-top: 30px;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    margin-top: 0;
 }
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
     width: 60px!important;

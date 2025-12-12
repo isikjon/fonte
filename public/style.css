@@ -170,7 +170,8 @@ header{
 }
 .parallax-slider .linkSlideBigMain{
     position: absolute;
-    left: 40px;
+    left: 5px;
+    bottom: -600px;
     margin-top: 0;
 }
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{

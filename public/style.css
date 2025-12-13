@@ -358,6 +358,43 @@ header{
     display: block;
     clear: both;
 }
+.blogContent .blogBanner{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 240px;
+    padding: 24px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    overflow: hidden;
+    margin: 20px 0;
+}
+.blogContent .blogBanner::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
+}
+.blogContent .blogBanner__content{
+    position: relative;
+    z-index: 1;
+    max-width: 70%;
+}
+.blogContent .blogBanner__content h3{
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 26px;
+    font-family: "Open Sans Condensed", sans-serif;
+}
+.blogContent .blogBanner__content p{
+    margin: 0;
+    color: #f5f5f5;
+    font-size: 18px;
+    line-height: 28px;
+    text-indent: 0;
+}
 .titleAll{
     color: #434C4C;
     font-family: "Open Sans Condensed", sans-serif;

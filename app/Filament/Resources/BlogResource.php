@@ -84,7 +84,6 @@ class BlogResource extends Resource
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('blog/content')
                     ->fileAttachmentsVisibility('public')
-                    ->headingLevels([2, 3, 4])
                     ->toolbarButtons([
                         'h2',
                         'h3',

@@ -306,6 +306,7 @@
     .textSlideBigMain{
         font-size: 32px;
         max-width: 320px;
+        margin-left: 0px !important;
     }
     .textSlideSubMain{
         font-size: 14px;

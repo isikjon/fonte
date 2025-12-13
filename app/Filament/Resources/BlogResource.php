@@ -9,7 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -79,27 +79,9 @@ class BlogResource extends Resource
                     ->label('Краткое описание')
                     ->rows(3),
 
-                RichEditor::make('content')
+                Field::make('content')
                     ->label('Полный текст статьи')
-                    ->fileAttachmentsDisk('public')
-                    ->fileAttachmentsDirectory('blog/content')
-                    ->fileAttachmentsVisibility('public')
-                    ->toolbarButtons([
-                        'h2',
-                        'h3',
-                        'bold',
-                        'italic',
-                        'strike',
-                        'link',
-                        'blockquote',
-                        'orderedList',
-                        'bulletList',
-                        'codeBlock',
-                        'horizontalRule',
-                        'attachFiles',
-                        'undo',
-                        'redo',
-                    ])
+                    ->view('forms.components.ckeditor')
                     ->columnSpanFull(),
 
                 Toggle::make('is_active')

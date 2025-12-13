@@ -9,8 +9,8 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\ViewField;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
@@ -79,10 +79,9 @@ class BlogResource extends Resource
                     ->label('Краткое описание')
                     ->rows(3),
 
-                Field::make('content')
+                ViewField::make('content')
                     ->label('Полный текст статьи')
-                    ->view('forms.components.ckeditor')
-                    ->columnSpanFull(),
+                    ->view('forms.components.ckeditor'),
 
                 Toggle::make('is_active')
                     ->label('Активна')

@@ -9,6 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -18,7 +19,6 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Awcodes\TiptapEditor\Components\TiptapEditor;
 
 class BlogResource extends Resource
 {
@@ -79,35 +79,26 @@ class BlogResource extends Resource
                     ->label('Краткое описание')
                     ->rows(3),
 
-                TiptapEditor::make('content')
+                RichEditor::make('content')
                     ->label('Полный текст статьи')
-                    ->profile('default')
-                    ->disk('public')
-                    ->directory('blog/content')
-                    ->tools([
-                        'heading',
-                        'paragraph',
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('blog/content')
+                    ->fileAttachmentsVisibility('public')
+                    ->toolbarButtons([
+                        'h2',
+                        'h3',
                         'bold',
                         'italic',
-                        'underline',
                         'strike',
                         'link',
                         'blockquote',
-                        'codeBlock',
-                        'bulletList',
                         'orderedList',
+                        'bulletList',
+                        'codeBlock',
                         'horizontalRule',
-                        'image',
                         'attachFiles',
-                        'textAlign',
-                        'color',
                         'undo',
                         'redo',
-                    ])
-                    ->colors([
-                        '#e53935',
-                        '#333333',
-                        '#808080',
                     ])
                     ->columnSpanFull(),
 

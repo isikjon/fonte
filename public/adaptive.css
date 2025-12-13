@@ -561,6 +561,7 @@
     }
     .slide-content .linkSlideBigMain{
         margin-top: 20px;
+        margin-left: 0 !important;
     }
     .container{
         padding-left: 15px;

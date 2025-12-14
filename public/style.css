@@ -498,7 +498,9 @@ header{
 .flex-text-contentMainSellSlide{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
+    width: 100%;
 }
 .text-contentMainSellSlide{
     width: 100%;

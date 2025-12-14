@@ -547,6 +547,14 @@
         gap: 10px;
         padding: 0 10px;
     }
+    .flex-text-contentMainSellSlide{
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .flex-text-contentMainSellSlide .linkSlideBigMain{
+        padding: 0 15px;
+    }
     .contentMainSellSlide{
         padding-bottom: 15px;
         gap: 15px;

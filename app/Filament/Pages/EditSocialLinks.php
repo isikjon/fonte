@@ -52,7 +52,7 @@ class EditSocialLinks extends Page implements HasForms
             'odnoklassniki' => Setting::get('social_odnoklassniki'),
             'telegram' => Setting::get('social_telegram'),
             'whatsapp' => Setting::get('social_whatsapp'),
-            'viber' => Setting::get('social_viber'),
+            'max' => Setting::get('social_max'),
         ]);
     }
 
@@ -101,9 +101,10 @@ class EditSocialLinks extends Page implements HasForms
                             ->label('WhatsApp')
                             ->placeholder('https://wa.me/...'),
 
-                        TextInput::make('viber')
+                        TextInput::make('max')
                             ->label('Max')
-                            ->placeholder('https://max.example'),
+                            ->url()
+                            ->placeholder('https://max.me/...'),
                     ]),
             ])
             ->statePath('data');
@@ -120,7 +121,7 @@ class EditSocialLinks extends Page implements HasForms
         Setting::set('social_odnoklassniki', $data['odnoklassniki'] ?? null);
         Setting::set('social_telegram', $data['telegram'] ?? null);
         Setting::set('social_whatsapp', $data['whatsapp'] ?? null);
-        Setting::set('social_viber', $data['viber'] ?? null);
+        Setting::set('social_max', $data['max'] ?? null);
 
         Notification::make()
             ->title('Сохранено!')

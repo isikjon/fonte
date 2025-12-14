@@ -105,11 +105,13 @@ class BlogResource extends Resource
                 TextColumn::make('title')
                     ->label('Название')
                     ->searchable()
-                    ->limit(50),
+                    ->limit(30)
+                    ->wrap(),
 
                 TextColumn::make('description')
                     ->label('Описание')
-                    ->limit(50),
+                    ->limit(30)
+                    ->wrap(),
 
                 IconColumn::make('is_active')
                     ->label('Активна')

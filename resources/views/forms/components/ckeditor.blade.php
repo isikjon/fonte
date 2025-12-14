@@ -62,14 +62,17 @@
                     fontSize: {
                         options: [12, 14, 16, 18, 20, 24, 30, 36],
                     },
-                    fontColor: {
-                        colors: [
-                            { color: '#e53935', label: 'Red' },
-                            { color: '#333333', label: 'Dark gray' },
-                            { color: '#808080', label: 'Gray' },
-                        ],
-                        columns: 5,
-                    },
+fontColor: {
+                    colors: [
+                        { color: '#fb6f58', label: 'Системный красный' },
+                        { color: '#e53935', label: 'Red' },
+                        { color: '#333333', label: 'Dark gray' },
+                        { color: '#808080', label: 'Gray' },
+                        { color: '#000000', label: 'Black' },
+                        { color: '#ffffff', label: 'White' },
+                    ],
+                    columns: 6,
+                },
                     fontFamily: {
                         supportAllValues: true,
                     },

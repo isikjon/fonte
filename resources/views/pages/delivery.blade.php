@@ -6,8 +6,8 @@
 <section class="bannerMainAboutSlider">
     <div class="container">
         <div class="bannerGreyTop">
-            <h2>Sometimes You've Just Got Questions That Need Answered. No Worries, We Totally Understand.</h2>
-            <p>Harums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+            <h2>Мы доставляем радость</h2>
+            <p>Берём на себя ответственность за доставку питомца и гарантируем его безопасность.</p>
         </div>
         <img src="/img/photo-bannerGreyTop.png" alt="" class="photo-bannerGreyTop">
     </div>

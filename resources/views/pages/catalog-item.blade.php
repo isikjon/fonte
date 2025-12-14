@@ -4,6 +4,7 @@
 
 @php
     use App\Models\PageText;
+    use App\Models\Setting;
     use Illuminate\Support\Facades\Storage;
     $genderText = match($puppy->gender) {
         'male' => 'Мальчик',
@@ -141,14 +142,18 @@
                     </svg>
                 </button>
                 <div class="accordion-content">
+                    @if(Setting::get('doc_offer_ru'))
                     <div class="file-row">
                         <span>Договор оферты (ru)</span>
-                        <a href="#">Скачать .word</a>
+                        <a href="{{ Storage::url(Setting::get('doc_offer_ru')) }}" target="_blank" download>Скачать</a>
                     </div>
+                    @endif
+                    @if(Setting::get('doc_offer_en'))
                     <div class="file-row">
                         <span>Договор оферты (en)</span>
-                        <a href="#">Скачать .word</a>
+                        <a href="{{ Storage::url(Setting::get('doc_offer_en')) }}" target="_blank" download>Скачать</a>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="accordion-item">
@@ -159,14 +164,18 @@
                     </svg>
                 </button>
                 <div class="accordion-content">
+                    @if(Setting::get('doc_sale_ru'))
                     <div class="file-row">
                         <span>Договор купли-продажи (ru)</span>
-                        <a href="#">Скачать .word</a>
+                        <a href="{{ Storage::url(Setting::get('doc_sale_ru')) }}" target="_blank" download>Скачать</a>
                     </div>
+                    @endif
+                    @if(Setting::get('doc_sale_en'))
                     <div class="file-row">
                         <span>Договор купли-продажи (en)</span>
-                        <a href="#">Скачать .word</a>
+                        <a href="{{ Storage::url(Setting::get('doc_sale_en')) }}" target="_blank" download>Скачать</a>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="accordion-item">

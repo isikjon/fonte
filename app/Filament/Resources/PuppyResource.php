@@ -146,7 +146,7 @@ class PuppyResource extends Resource
                         'file',
                         'mimes:jpeg,png,webp,gif,mp4,webm,mov',
                         'max:262144'
-                    ], ['gallery.*']),
+                    ]),
 
                 Toggle::make('is_new')
                     ->label('Новинка')

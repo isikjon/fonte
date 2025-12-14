@@ -559,6 +559,10 @@
         padding-bottom: 15px;
         gap: 15px;
     }
+    .photoContentMainSellSlide,
+    video.photoContentMainSellSlide{
+        height: 320px;
+    }
     .titleAll{
         font-size: 20px;
     }

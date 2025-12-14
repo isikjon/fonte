@@ -42,8 +42,9 @@
             <div class="socialsFooter">
                 <p>Написать нам</p>
                 <div class="flex-socialsFooter">
-                    @if(Setting::get('social_max'))
-                    <a href="{{ Setting::get('social_max') }}" target="_blank">
+                    @php $maxLink = Setting::get('social_max') ?: Setting::get('social_viber'); @endphp
+                    @if($maxLink)
+                    <a href="{{ $maxLink }}" target="_blank">
                         <img src="/img/flex-socialsFooter-6.svg" alt="Max">
                     </a>
                     @endif

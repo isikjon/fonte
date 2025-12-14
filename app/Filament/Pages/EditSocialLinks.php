@@ -52,7 +52,7 @@ class EditSocialLinks extends Page implements HasForms
             'odnoklassniki' => Setting::get('social_odnoklassniki'),
             'telegram' => Setting::get('social_telegram'),
             'whatsapp' => Setting::get('social_whatsapp'),
-            'max' => Setting::get('social_max'),
+            'max' => Setting::get('social_max') ?: Setting::get('social_viber'),
         ]);
     }
 

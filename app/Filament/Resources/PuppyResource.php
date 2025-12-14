@@ -128,9 +128,6 @@ class PuppyResource extends Resource
                         'file',
                         'mimes:jpeg,png,webp,gif,mp4,webm,mov',
                         'max:262144'
-                    ])
-                    ->validationMessages([
-                        'max' => 'Максимальный размер файла: 256 MB',
                     ]),
 
                 FileUpload::make('gallery')
@@ -149,10 +146,7 @@ class PuppyResource extends Resource
                         'file',
                         'mimes:jpeg,png,webp,gif,mp4,webm,mov',
                         'max:262144'
-                    ], ['gallery.*'])
-                    ->validationMessages([
-                        'gallery.*.max' => 'Максимальный размер файла: 256 MB',
-                    ]),
+                    ], ['gallery.*']),
 
                 Toggle::make('is_new')
                     ->label('Новинка')

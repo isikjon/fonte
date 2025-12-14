@@ -470,6 +470,10 @@ header{
 }
 .photoContentMainSellSlide{
     width: 100%;
+    object-fit: cover;
+}
+video.photoContentMainSellSlide{
+    aspect-ratio: 1/1;
 }
 .text-contentMainSellSlide{
     display: flex;

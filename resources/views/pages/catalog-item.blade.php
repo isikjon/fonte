@@ -39,7 +39,11 @@
                     <div class="swiper-wrapper">
                         @if($puppy->photo)
                             <div class="swiper-slide swiper-slide-mySwiper-left-flexCardCatalogTop">
-                                <img src="{{ Storage::url($puppy->photo) }}" alt="{{ $puppy->name }}">
+                                @if(Str::endsWith(strtolower($puppy->photo), ['.mp4', '.webm', '.mov']))
+                                    <video src="{{ Storage::url($puppy->photo) }}" controls playsinline></video>
+                                @else
+                                    <img src="{{ Storage::url($puppy->photo) }}" alt="{{ $puppy->name }}">
+                                @endif
                             </div>
                         @endif
                         @if($puppy->gallery)
@@ -64,7 +68,11 @@
                     <div class="swiper-wrapper swiper-wrapper-card">
                         @if($puppy->photo)
                             <div class="swiper-slide swiper-slide-mySwiper-left-flexCardCatalogTop2">
-                                <img src="{{ Storage::url($puppy->photo) }}" alt="{{ $puppy->name }}">
+                                @if(Str::endsWith(strtolower($puppy->photo), ['.mp4', '.webm', '.mov']))
+                                    <video src="{{ Storage::url($puppy->photo) }}" muted></video>
+                                @else
+                                    <img src="{{ Storage::url($puppy->photo) }}" alt="{{ $puppy->name }}">
+                                @endif
                             </div>
                         @endif
                         @if($puppy->gallery)

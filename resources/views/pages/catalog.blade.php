@@ -6,6 +6,7 @@
     use App\Models\PageText;
     use App\Models\Puppy;
     use Illuminate\Support\Facades\Storage;
+    use Illuminate\Support\Str;
     $puppies = Puppy::active()->ordered()->paginate(12);
 @endphp
 
@@ -30,7 +31,11 @@
                     <img src="/img/new.svg" alt="" class="newTag">
                 @endif
                 @if($puppy->photo)
-                    <img src="{{ Storage::url($puppy->photo) }}" alt="{{ $puppy->name }}" class="photoContentMainSellSlide">
+                    @if(Str::endsWith(strtolower($puppy->photo), ['.mp4', '.webm', '.mov']))
+                        <video src="{{ Storage::url($puppy->photo) }}" class="photoContentMainSellSlide" muted autoplay loop playsinline></video>
+                    @else
+                        <img src="{{ Storage::url($puppy->photo) }}" alt="{{ $puppy->name }}" class="photoContentMainSellSlide">
+                    @endif
                 @else
                     <img src="/img/contentMainSellSlide__img.png" alt="{{ $puppy->name }}" class="photoContentMainSellSlide">
                 @endif

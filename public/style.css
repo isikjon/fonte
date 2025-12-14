@@ -502,6 +502,10 @@ header{
     gap: 20px;
     width: 100%;
 }
+
+.flex-text-contentMainSellSlide .linkSlideBigMain {
+    margin-left: 0px !important;
+}
 .text-contentMainSellSlide{
     width: 100%;
 }

@@ -123,12 +123,7 @@ class PuppyResource extends Resource
                     ->disk('public')
                     ->directory('puppies')
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm', 'video/quicktime'])
-                    ->maxSize(262144)
-                    ->rules([
-                        'file',
-                        'mimes:jpeg,png,webp,gif,mp4,webm,mov',
-                        'max:262144'
-                    ]),
+                    ->maxSize(262144),
 
                 FileUpload::make('gallery')
                     ->label('Галерея')
@@ -137,16 +132,7 @@ class PuppyResource extends Resource
                     ->directory('puppies/gallery')
                     ->reorderable()
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm', 'video/quicktime'])
-                    ->maxSize(262144)
-                    ->rules([
-                        'array',
-                        'max:20'
-                    ])
-                    ->rules([
-                        'file',
-                        'mimes:jpeg,png,webp,gif,mp4,webm,mov',
-                        'max:262144'
-                    ]),
+                    ->maxSize(262144),
 
                 Toggle::make('is_new')
                     ->label('Новинка')

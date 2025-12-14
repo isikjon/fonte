@@ -1254,8 +1254,11 @@ footer{
 .swiper-slide.swiper-slide-mySwiper-left-flexCardCatalogTop2.swiper-slide-thumb-active{
     border: 3px solid #FB6F58;
 }
-.swiper-slide.swiper-slide-mySwiper-left-flexCardCatalogTop2 img{
+.swiper-slide.swiper-slide-mySwiper-left-flexCardCatalogTop2 img,
+.swiper-slide.swiper-slide-mySwiper-left-flexCardCatalogTop2 video{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .left-flexCardCatalogTop{
     width: 550px;
@@ -1264,7 +1267,8 @@ footer{
     align-items: center!important;
     justify-content: flex-start!important;
 }
-.swiper-slide-mySwiper-left-flexCardCatalogTop img{
+.swiper-slide-mySwiper-left-flexCardCatalogTop img,
+.swiper-slide-mySwiper-left-flexCardCatalogTop video{
     width: 100%;
     border-radius: 10px;
     border: 1px solid #DEDEE2;

@@ -127,11 +127,12 @@ class PuppyResource extends Resource
 
                 FileUpload::make('gallery')
                     ->label('Галерея')
-                    ->image()
                     ->disk('public')
                     ->multiple()
                     ->directory('puppies/gallery')
-                    ->reorderable(),
+                    ->reorderable()
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm', 'video/quicktime'])
+                    ->maxSize(102400),
 
                 Toggle::make('is_new')
                     ->label('Новинка')

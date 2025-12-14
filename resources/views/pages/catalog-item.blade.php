@@ -6,6 +6,7 @@
     use App\Models\PageText;
     use App\Models\Setting;
     use Illuminate\Support\Facades\Storage;
+    use Illuminate\Support\Str;
     $genderText = match($puppy->gender) {
         'male' => 'Мальчик',
         'female' => 'Девочка',
@@ -42,9 +43,13 @@
                             </div>
                         @endif
                         @if($puppy->gallery)
-                            @foreach($puppy->gallery as $image)
+                            @foreach($puppy->gallery as $media)
                                 <div class="swiper-slide swiper-slide-mySwiper-left-flexCardCatalogTop">
-                                    <img src="{{ Storage::url($image) }}" alt="{{ $puppy->name }}">
+                                    @if(Str::endsWith(strtolower($media), ['.mp4', '.webm', '.mov']))
+                                        <video src="{{ Storage::url($media) }}" controls playsinline></video>
+                                    @else
+                                        <img src="{{ Storage::url($media) }}" alt="{{ $puppy->name }}">
+                                    @endif
                                 </div>
                             @endforeach
                         @endif
@@ -63,9 +68,13 @@
                             </div>
                         @endif
                         @if($puppy->gallery)
-                            @foreach($puppy->gallery as $image)
+                            @foreach($puppy->gallery as $media)
                                 <div class="swiper-slide swiper-slide-mySwiper-left-flexCardCatalogTop2">
-                                    <img src="{{ Storage::url($image) }}" alt="{{ $puppy->name }}">
+                                    @if(Str::endsWith(strtolower($media), ['.mp4', '.webm', '.mov']))
+                                        <video src="{{ Storage::url($media) }}" muted></video>
+                                    @else
+                                        <img src="{{ Storage::url($media) }}" alt="{{ $puppy->name }}">
+                                    @endif
                                 </div>
                             @endforeach
                         @endif

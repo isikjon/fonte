@@ -490,6 +490,10 @@ video.photoContentMainSellSlide{
 .flex-text-contentMainSellSlide .linkSlideBigMain{
     margin-top: 0;
 }
+
+.flexMainAbout .left-flexMainAbout .linkSlideBigMain {
+    margin-left: 0px !important;
+}
 .text-contentMainSellSlide h3{
     color: #434C4C;
     font-size: 20px;

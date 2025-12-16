@@ -91,19 +91,22 @@ class BlogBannerResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Изображение')
-                    ->defaultImageUrl('/img/icon.png'),
+                    ->defaultImageUrl('/img/icon.png')
+                    ->visibility('public'),
 
                 TextColumn::make('title')
                     ->label('Заголовок')
                     ->searchable()
                     ->limit(30)
-                    ->placeholder('—'),
+                    ->placeholder('—')
+                    ->default('—'),
 
                 TextColumn::make('subtitle')
                     ->label('Подзаголовок')
                     ->limit(30)
                     ->wrap()
-                    ->placeholder('—'),
+                    ->placeholder('—')
+                    ->default('—'),
 
                 IconColumn::make('is_active')
                     ->label('Активен')
@@ -111,9 +114,10 @@ class BlogBannerResource extends Resource
 
                 TextColumn::make('sort_order')
                     ->label('Порядок')
-                    ->sortable(),
+                    ->sortable()
+                    ->default(0),
             ])
-            ->defaultSort('sort_order')
+            ->defaultSort('sort_order', 'asc')
             ->actions([
                 EditAction::make(),
                 DeleteAction::make(),

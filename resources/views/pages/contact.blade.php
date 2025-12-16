@@ -6,6 +6,9 @@
 
 @php
     use App\Models\PageText;
+    use App\Models\Faq;
+    $faqs = Faq::active()->ordered()->get();
+    $faqsByCategory = $faqs->groupBy('category');
 @endphp
 
 @section('content')
@@ -24,86 +27,27 @@
         <div class="faqBlockGrey">
             <h2 class="titleAll">Часто Задаваемые Вопросы</h2>
             <p class="faqSubtitle">Прежде чем задать новый вопрос, просим Вас ознакомиться со списком часто задаваемых вопросов и ответов. Если ответ на ваш вопрос опубликован в данном разделе, мы оставляем за собой право не отвечать.</p>
-            <h3 class="faqCategoryTitle">Наличие и характеристики товара:</h3>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Как мне узнать наличие товара и как его зарезервировать, чтобы быть уверенным, что его не купят до моего прихода?
-                        <span class="accordion-plus">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="flex-textAll-p flex-textAll-p22">
-                            <p class="textAll-p">Вы можете связаться с нами по телефону или через форму обратной связи для уточнения наличия и резервирования.</p>
+            
+            @foreach($faqsByCategory as $category => $categoryFaqs)
+                @if($category)
+                    <h3 class="faqCategoryTitle">{{ $category }}:</h3>
+                @endif
+                <div class="accordion">
+                    @foreach($categoryFaqs as $faq)
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                {{ $faq->question }}
+                                <span class="accordion-plus">+</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="flex-textAll-p flex-textAll-p22">
+                                    {!! $faq->answer !!}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Где я могу увидеть характеристики товара?
-                        <span class="accordion-plus">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="flex-textAll-p flex-textAll-p22">
-                            <p class="textAll-p">Характеристики каждого щенка указаны на его странице в каталоге.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Как мне сравнить несколько товаров?
-                        <span class="accordion-plus">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="flex-textAll-p flex-textAll-p22">
-                            <p class="textAll-p">Вы можете открыть страницы интересующих щенков в разных вкладках для сравнения.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Почему на сайте сначала была одна цена, а потом она изменилась?
-                        <span class="accordion-plus">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="flex-textAll-p flex-textAll-p22">
-                            <p class="textAll-p">Цены могут меняться в зависимости от возраста щенка и других факторов.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Почему у товара раньше была кнопка «добавить в корзину», а теперь её нет?
-                        <span class="accordion-plus">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="flex-textAll-p flex-textAll-p22">
-                            <p class="textAll-p">Это означает, что щенок был зарезервирован или продан.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Почему для одних товаров доступны все способы доставки, для других только один способ доставки, а у некоторых вообще доставки нет?
-                        <span class="accordion-plus">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="flex-textAll-p flex-textAll-p22">
-                            <p class="textAll-p">Способы доставки зависят от возраста щенка и требований к перевозке.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        Нужный мне товар есть на сайте других городов, но на сайте моего города он отсутствует. Как я могу его купить?
-                        <span class="accordion-plus">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="flex-textAll-p flex-textAll-p22">
-                            <p class="textAll-p">Свяжитесь с нами, и мы поможем организовать доставку.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

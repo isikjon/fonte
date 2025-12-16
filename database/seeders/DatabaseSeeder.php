@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             DocumentSeeder::class,
             SettingSeeder::class,
             SlideSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }

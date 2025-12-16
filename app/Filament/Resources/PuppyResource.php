@@ -77,8 +77,8 @@ class PuppyResource extends Resource
                 Select::make('gender')
                     ->label('Пол')
                     ->options([
-                        'male' => 'Мальчик',
-                        'female' => 'Девочка',
+                        'male' => 'Кобель',
+                        'female' => 'Сука',
                     ]),
 
                 TextInput::make('color')
@@ -108,14 +108,19 @@ class PuppyResource extends Resource
                     ->prefix('$')
                     ->default(0),
 
-                Textarea::make('short_description')
-                    ->label('Краткое описание (для карточки)')
-                    ->helperText('Отображается на главной и в каталоге')
+                Textarea::make('catalog_short_description')
+                    ->label('Краткое описание для каталога')
+                    ->helperText('Отображается в каталоге и на главной странице')
                     ->rows(2),
 
-                Textarea::make('description')
-                    ->label('Полное описание (для баннера)')
-                    ->helperText('Отображается на странице щенка под именем')
+                Textarea::make('banner_description')
+                    ->label('Краткое описание для баннера')
+                    ->helperText('Отображается в баннере на странице щенка')
+                    ->rows(2),
+
+                Textarea::make('full_description')
+                    ->label('Подробное описание в карточке щенка')
+                    ->helperText('Отображается в подробной информации на странице щенка')
                     ->rows(4),
 
                 FileUpload::make('photo')
@@ -164,8 +169,8 @@ class PuppyResource extends Resource
                 TextColumn::make('gender')
                     ->label('Пол')
                     ->formatStateUsing(fn (string $state): string => match($state) {
-                        'male' => 'Мальчик',
-                        'female' => 'Девочка',
+                        'male' => 'Кобель',
+                        'female' => 'Сука',
                         default => $state,
                     }),
 

@@ -8,8 +8,8 @@
     use Illuminate\Support\Facades\Storage;
     use Illuminate\Support\Str;
     $genderText = match($puppy->gender) {
-        'male' => 'Мальчик',
-        'female' => 'Девочка',
+        'male' => 'Кобель',
+        'female' => 'Сука',
         default => $puppy->gender,
     };
     $statusText = match($puppy->status) {
@@ -25,7 +25,7 @@
     <div class="container">
         <div class="bannerGreyTop">
             <h2 style="color: #FB6F58;">{{ $puppy->name }}</h2>
-            <p>{{ $puppy->description }}</p>
+            <p>{{ $puppy->banner_description }}</p>
         </div>
         <img src="/img/photo-bannerGreyTop.png" alt="" class="photo-bannerGreyTop">
     </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="right-flexCardCatalogTop">
                 <div class="flex-textAll-p">
-                    <p class="textAll-p">{{ $puppy->description }}</p>
+                    <p class="textAll-p">{{ $puppy->full_description }}</p>
                 </div>
                 <div class="blockInfo-right-flexCardCatalogTop">
                     @if($puppy->breed)

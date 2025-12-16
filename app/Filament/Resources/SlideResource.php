@@ -9,8 +9,10 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\ViewField;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
@@ -60,9 +62,10 @@ class SlideResource extends Resource
                     ->label('Заголовок (H1)')
                     ->maxLength(255),
 
-                TextInput::make('subtitle')
+                Textarea::make('subtitle')
                     ->label('Подзаголовок (P)')
-                    ->maxLength(255),
+                    ->rows(2)
+                    ->maxLength(500),
 
                 TextInput::make('button_text')
                     ->label('Текст кнопки')
@@ -79,7 +82,12 @@ class SlideResource extends Resource
                     ->image()
                     ->disk('public')
                     ->directory('slides')
-                    ->imageEditor(),
+                    ->imageEditor()
+                    ->maxSize(1048576),
+
+                ViewField::make('image_recommendation')
+                    ->label('')
+                    ->view('filament.forms.components.image-recommendation'),
 
                 Toggle::make('is_active')
                     ->label('Активен')

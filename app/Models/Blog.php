@@ -47,5 +47,20 @@ class Blog extends Model
     {
         return Str::limit(strip_tags($this->description), 150);
     }
+
+    public function getProcessedContentAttribute(): string
+    {
+        if (!$this->content) {
+            return '';
+        }
+
+        $content = $this->content;
+        $pattern = '/\[BANNER:(\d+)\]/';
+        
+        return preg_replace_callback($pattern, function ($matches) {
+            $bannerId = $matches[1];
+            return view('partials.blog-banner', ['bannerId' => $bannerId])->render();
+        }, $content);
+    }
 }
 

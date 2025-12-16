@@ -27,7 +27,7 @@
 
             @if($blog->content)
                 <div class="flex-textAll-p blogContent">
-                    {!! $blog->content !!}
+                    {!! $blog->processed_content !!}
                 </div>
             @elseif($blog->description)
                 <div class="flex-textAll-p blogContent">

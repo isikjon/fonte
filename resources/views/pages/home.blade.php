@@ -25,9 +25,6 @@
                     <div class="container">
                         <h1 class="textSlideBigMain">{{ $slide->title }}</h1>
                         <p class="textSlideSubMain">{{ $slide->subtitle }}</p>
-                        @if($slide->button_text)
-                        <a href="{{ $slide->button_link ?: '#' }}" class="linkSlideBigMain">{{ $slide->button_text }}</a>
-                        @endif
                     </div>
                 </div>
             </div>

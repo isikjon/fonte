@@ -72,8 +72,7 @@ class BlogBannerResource extends Resource
                     ->image()
                     ->disk('public')
                     ->directory('blog-banners')
-                    ->imageEditor()
-                    ->required(),
+                    ->imageEditor(),
 
                 Toggle::make('is_active')
                     ->label('Активен')
@@ -91,17 +90,20 @@ class BlogBannerResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image')
-                    ->label('Изображение'),
+                    ->label('Изображение')
+                    ->defaultImageUrl('/img/icon.png'),
 
                 TextColumn::make('title')
                     ->label('Заголовок')
                     ->searchable()
-                    ->limit(30),
+                    ->limit(30)
+                    ->placeholder('—'),
 
                 TextColumn::make('subtitle')
                     ->label('Подзаголовок')
                     ->limit(30)
-                    ->wrap(),
+                    ->wrap()
+                    ->placeholder('—'),
 
                 IconColumn::make('is_active')
                     ->label('Активен')

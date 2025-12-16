@@ -23,7 +23,7 @@ class EditSiteImages extends Page
 
     public static function getNavigationLabel(): string
     {
-        return 'Изображения сайта';
+        return 'О нашем питомнике';
     }
 
     public static function getNavigationGroup(): ?string
@@ -33,12 +33,12 @@ class EditSiteImages extends Page
 
     public static function getNavigationSort(): ?int
     {
-        return 15;
+        return 2;
     }
 
     public function getTitle(): string
     {
-        return 'Изображения сайта';
+        return 'О нашем питомнике';
     }
 
     public function mount(): void

@@ -52,7 +52,7 @@ class PuppyResource extends Resource
 
     public static function getNavigationSort(): ?int
     {
-        return 1;
+        return 3;
     }
 
     public static function form(Schema $schema): Schema

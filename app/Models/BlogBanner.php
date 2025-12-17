@@ -9,7 +9,6 @@ class BlogBanner extends Model
     protected $fillable = [
         'title',
         'subtitle',
-        'image',
         'sort_order',
         'is_active',
     ];

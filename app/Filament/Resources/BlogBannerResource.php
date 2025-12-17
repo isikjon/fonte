@@ -55,15 +55,11 @@ class BlogBannerResource extends Resource
     {
         return $schema
             ->components([
-                TextInput::make('title')
-                    ->label('Заголовок')
-                    ->maxLength(255)
-                    ->helperText('Текст отображается отдельным слоем в выделенном блоке'),
-
                 Textarea::make('subtitle')
-                    ->label('Подзаголовок')
-                    ->rows(2)
-                    ->helperText('Текст отображается отдельным слоем в выделенном блоке'),
+                    ->label('Текст баннера')
+                    ->required()
+                    ->rows(3)
+                    ->helperText('Текст отображается отдельным слоем в выделенном блоке с серым фоном и красной левой границей'),
 
                 Toggle::make('is_active')
                     ->label('Активен')
@@ -80,19 +76,12 @@ class BlogBannerResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')
-                    ->label('Заголовок')
-                    ->searchable()
-                    ->limit(30)
-                    ->placeholder('—')
-                    ->default('—'),
-
                 TextColumn::make('subtitle')
-                    ->label('Подзаголовок')
-                    ->limit(30)
+                    ->label('Текст баннера')
+                    ->searchable()
+                    ->limit(50)
                     ->wrap()
-                    ->placeholder('—')
-                    ->default('—'),
+                    ->placeholder('—'),
 
                 IconColumn::make('is_active')
                     ->label('Активен')

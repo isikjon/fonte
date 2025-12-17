@@ -21,10 +21,6 @@
     <div class="container">
         <h2 class="titleAll">{{ $blog->title }}</h2>
         <div class="flexBlogPage">
-            @if($blog->photo)
-                <img src="{{ Storage::url($blog->photo) }}" alt="{{ $blog->title }}" class="flexBlogPageBanner">
-            @endif
-
             @if($blog->content)
                 <div class="flex-textAll-p blogContent">
                     {!! $blog->processed_content !!}

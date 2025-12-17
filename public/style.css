@@ -295,6 +295,9 @@ header{
     display: block;
     gap: 0;
 }
+.blogContent{
+    font-family: "Open Sans", sans-serif;
+}
 .blogContent p{
     text-indent: 30px;
     color: #808282;
@@ -394,6 +397,21 @@ header{
     font-size: 18px;
     line-height: 28px;
     text-indent: 0;
+}
+.blogContent .blogBannerBlock{
+    width: 85%;
+    border-left: 3px solid #FB6F58;
+    background: #EFF0F2;
+    padding: 20px 25px;
+    margin: 20px 0;
+}
+.blogContent .blogBannerBlock p{
+    margin: 0;
+    color: #434C4C;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    font-style: italic;
 }
 .titleAll{
     color: #434C4C;

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class BlogBanner extends Model
 {
     protected $fillable = [
-        'title',
         'subtitle',
         'sort_order',
         'is_active',

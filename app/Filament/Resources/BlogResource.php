@@ -65,6 +65,7 @@ class BlogResource extends Resource
 
                 FileUpload::make('photo')
                     ->label('Обложка для списка')
+                    ->helperText('Рекомендуемый размер: 400x300px')
                     ->image()
                     ->disk('public')
                     ->directory('blog')

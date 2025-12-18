@@ -19,7 +19,6 @@
 
 <section class="revSection revSection-2">
     <div class="container">
-        <h2 class="titleAll">{{ $blog->title }}</h2>
         <div class="flexBlogPage">
             @if($blog->content)
                 <div class="flex-textAll-p blogContent">

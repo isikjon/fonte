@@ -399,10 +399,11 @@ header{
     text-indent: 0;
 }
 .blogContent .blogBannerBlock{
-    width: 100%;
+    width: 90%;
     border-left: 3px solid #FB6F58;
     background: #EFF0F2;
     padding: 20px 25px;
+    margin-left: 140px;
 }
 .blogContent .blogBannerBlock p{
     margin: 0;
